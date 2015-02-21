@@ -1,14 +1,18 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This package provides functions to handle caching of the inverse
+## of a given matrix.  The inversion process is typically expensive,
+## and caching of inverted matrix provide performance benefit when
+## repeated matrix inversions are necessary.
 
-## Write a short comment describing this function
+## makeCacheMatrix:  Build a special Matrix object with a cached
+## inverse matrix
 
 makeCacheMatrix <- function(x = matrix()) {
 
 }
 
 
-## Write a short comment describing this function
+## cacheSolve:  Compute the inverse of the special cacheable matrix
+## build from makeCacheMatrix.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
