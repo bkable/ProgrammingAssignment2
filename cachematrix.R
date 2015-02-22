@@ -15,8 +15,12 @@
 ## where matrix inversion fails
 
 
-## makeCacheMatrix:  Build a special Matrix object with a cached
-## inverse matrix
+## makeCacheMatrix:  Build a Cached Matrix object, which will also cache its 
+## associated inverse matrix
+##
+## The cached matrix object is simply a cache wrapper around matrix and associated
+## inverse matrix object.  The matrix inversion operation is calculated
+## in cacheSolve function.
 
 makeCacheMatrix <- function(m = matrix()) {
         im <- NULL
@@ -44,8 +48,17 @@ makeCacheMatrix <- function(m = matrix()) {
 }
 
 
-## cacheSolve:  Compute the inverse of the special cacheable matrix
-## build from makeCacheMatrix.
+## cacheSolve:  Compute the inverse of cached matrix, and store the cached
+## inverse matrix.  Note that after first inversion solution, the inverse
+## matrix is cache with associated cached matrix object.
+##
+## Usage as follows:
+##
+##      cacheSole(m)
+##
+##      where m is the cached matrix constructed from
+##
+##              m <- makeCacheMatrix()
 
 cacheSolve <- function(m, ...) {
         im <- m$getInvMatrix()
